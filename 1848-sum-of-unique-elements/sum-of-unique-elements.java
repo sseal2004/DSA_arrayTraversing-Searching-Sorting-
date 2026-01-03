@@ -1,17 +1,15 @@
 class Solution {
     public int sumOfUnique(int[] nums) {
-        int sum=0;
+        int []arr = new int[101];
         for(int i=0;i<nums.length;i++){
-            boolean isUnique=true;
-            for(int j=0;j<nums.length;j++){
-            if(nums[j]==nums[i] && i!=j) {
-                isUnique=false;
-                break;
-            }
-            }
-            if(isUnique)sum+=nums[i];
-            
+            arr[nums[i]]++;
         }
-        return sum;
-    }
+        int sum=0;
+        for(int i=0;i<101;i++){
+            if(arr[i]==1){
+                sum+=i;
+            }
+        }return sum;
+
+           }
 }
